@@ -2,6 +2,10 @@
 check:
 	cargo check
 
+.PHONY: db_local_start_contaienr
+db_local_start_contaienr:
+	./scripts/init_db.sh
+
 .PHONY: build
 build:
 	cargo build
