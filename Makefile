@@ -2,9 +2,14 @@
 check:
 	cargo check
 
-.PHONY: db_local_start_contaienr
-db_local_start_contaienr:
+.PHONY: db_local_start_container
+db_local_start_container:
 	./scripts/init_db.sh
+
+.PHONY: db_local_stop
+db_local_stop:
+	docker stop postgres
+	docker rm -f postgres
 
 .PHONY: build
 build:
