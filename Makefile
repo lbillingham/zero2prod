@@ -8,7 +8,7 @@ db_local_start_container:
 
 .PHONY: db_local_stop
 db_local_stop:
-	docker stop postgres
+	docker stop postgres || true
 	docker rm -f postgres
 
 .PHONY: build
