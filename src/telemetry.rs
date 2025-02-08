@@ -10,6 +10,8 @@ pub fn get_subscriber<Sink>(
     sink: Sink,
 ) -> impl Subscriber + Send + Sync
 where
+    // higher-ranked trait bound for any lifetime 'a  Sink impliments Makewriter
+    //  c.f.  https://doc.rust-lang.org/nomicon/hrtb.html,
     Sink: for<'a> MakeWriter<'a> + Send + Sync + 'static,
 {
     let env_filter =
